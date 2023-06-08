@@ -11,7 +11,7 @@ class Provider(BaseProvider):
         la_code: Optional[str] = None,
         establishment_number: Optional[str] = None,
         year_allocation: Optional[str] = None,
-        serial_number: Optional[str] = None
+        serial_number: Optional[str] = None,
     ) -> str:
         """
         Generates a random UPN string with valid check letter.
@@ -34,29 +34,28 @@ class Provider(BaseProvider):
             A valid random 13-digit UPN string
         """
         if not la_code:
-            la_code = self.bothify(text='###')
+            la_code = self.bothify(text="###")
         if not establishment_number:
-            establishment_number = self.bothify(text='####')
+            establishment_number = self.bothify(text="####")
         if not year_allocation:
-            year_allocation = self.bothify(text='##')
+            year_allocation = self.bothify(text="##")
         if not serial_number:
             if temporary:
-                serial_number = self.bothify(text='##?', letters=VALID_STARTING_LETTERS)
+                serial_number = self.bothify(text="##?", letters=VALID_STARTING_LETTERS)
             else:
-                serial_number = self.bothify(text='###')
+                serial_number = self.bothify(text="###")
 
-        return UPN(la_code, establishment_number, year_allocation, serial_number, check_letter).format()
+        return UPN(
+            la_code, establishment_number, year_allocation, serial_number, check_letter
+        ).format()
 
-    def upn_simple(
-            self,
-            temporary: Optional[bool] = False
-        ) -> str:
+    def upn_simple(self, temporary: Optional[bool] = False) -> str:
         """
         Generates a UPN-like string without concerns about validity (e.g. the check letter)
         :param temporary: Is this a temporary UPN that should end in a letter?
         :return: A UPN String
         """
         if temporary:
-            return self.bothify(text='?###########?', letters=VALID_STARTING_LETTERS)
+            return self.bothify(text="?###########?", letters=VALID_STARTING_LETTERS)
         else:
-            return self.bothify(text='?############', letters=VALID_STARTING_LETTERS)
+            return self.bothify(text="?############", letters=VALID_STARTING_LETTERS)

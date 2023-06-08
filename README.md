@@ -38,7 +38,9 @@ for item in range(0,10):
 
 #### upn
 You can call this without any arguments, but you can also specify specific 
-parts of the number to use. The UPN has the following format:
+parts of the number to use. From 
+[the documentation](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/807381/UPN_Guide_1.2.pdf), 
+the UPN has the following format:
 
 CLLLEEEEYYSSS
 
