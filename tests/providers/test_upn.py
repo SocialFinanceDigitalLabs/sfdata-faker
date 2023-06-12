@@ -1,8 +1,6 @@
 import pytest
 from faker import Faker
 from providers.UPN.en_GB import Provider as UPNProvider
-from providers.UPN import UPN
-import unittest
 
 
 class TestUPN:
@@ -37,3 +35,13 @@ class TestUPN:
     def test_la_code_format_error(self):
         with pytest.raises(Exception):
             upn = self.fake.upn(la_code="80G")
+
+    def test_upn_seed_repeatability(self):
+        self.fake.seed_instance(0)
+        upns = []
+        for item in range(0, 10):
+            upns.append(self.fake.upn())
+
+        self.fake.seed_instance(0)
+        for item in range(0, 10):
+            assert upns[item] == self.fake.upn()

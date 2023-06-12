@@ -1,5 +1,5 @@
 from faker.providers import BaseProvider
-from typing import Any, Optional
+from typing import Optional
 from .upn import UPN, VALID_STARTING_LETTERS, UNKNOWN_CODES
 
 
