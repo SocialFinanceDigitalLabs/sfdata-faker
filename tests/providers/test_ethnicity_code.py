@@ -19,7 +19,5 @@ class TestEthnicityCode:
     def test_ethnicity_code_weighting(self):
         from collections import OrderedDict
 
-        eth = self.fake.ethnicity_code(
-            codes=OrderedDict([("TEST", 0.01), ("YES", 0.99)])
-        )
+        eth = self.fake.ethnicity_code(codes=OrderedDict([("TEST", 0), ("YES", 1)]))
         assert eth == "YES"

@@ -3,5 +3,5 @@ from typing import Optional
 
 
 class Provider(BaseProvider):
-    def child_id(self, min: Optional[int] = 0, max: Optional[int] = 1000000) -> str:
+    def child_id(self, min: Optional[int] = 0, max: Optional[int] = 1000000) -> int:
         return self.random_int(min=min, max=max)

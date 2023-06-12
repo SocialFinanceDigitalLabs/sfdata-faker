@@ -8,7 +8,7 @@ from providers.placement.placement import (
 )
 
 
-class TestEthnicityCode:
+class TestPlacement:
     fake = Faker("en_GB")
     fake.add_provider(PlacementProvider)
 
@@ -57,4 +57,3 @@ class TestEthnicityCode:
         assert len(this_placement) == 5
         assert this_placement[0] in PLACEMENT_TYPE_CODES.keys()
         assert this_placement[1] in [code[0] for code in PLACEMENT_CODES["even"]]
-        assert this_placement[3] in [code[0] for code in PLACEMENT_CODES["even"]]

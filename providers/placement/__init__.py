@@ -37,9 +37,7 @@ class Provider(BaseProvider):
 
     def placement(self) -> list:
         urn = self.placement_provider_urn()
-        place_postcode = self.random_elements(
-            elements=PLACEMENT_CODES["weighted"], use_weighting=True, length=1
-        )[0][0]
+        place_postcode = self.fake.postcode()
         home_postcode = self.fake.postcode()
         placement_type = self.placement_type()
         placement_code = self._placement_type_to_code(placement_type)
